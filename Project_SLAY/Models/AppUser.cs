@@ -41,6 +41,7 @@ namespace Project_SLAY.Models
         public String EmployeeType { get; set; }
 
         // hey luke
+        // fuck you steven
 
     }
 }
