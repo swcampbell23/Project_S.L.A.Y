@@ -2,8 +2,8 @@
 using System.Globalization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
-using Project_S.L.A.Y.DAL;
-using Project_S.L.A.Y.Models;
+using Campbell_Steven_HW5.DAL;
+using Campbell_Steven_HW5.Models;
 
 //create a web application builder
 var builder = WebApplication.CreateBuilder(args);
@@ -12,9 +12,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 String connectionString =
-"Server = tcp:fa22projectslay.database.windows.net,1433; Initial Catalog = fa22projectslay;" +
-"Persist Security Info=False; User ID = MISAdmin; Password = Password123; MultipleActiveResultSets = True;" +
-"Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
+"Server = tcp:fa22projectslay.database.windows.net,1433; Initial Catalog = fa22projectslay; Persist Security Info=False;" +
+"User ID = MISAdmin; Password = Password123; MultipleActiveResultSets = True; Encrypt = True;" +
+"TrustServerCertificate = False; Connection Timeout = 30;";
 
 //NOTE: This tells your application how to get a connection to the database
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
