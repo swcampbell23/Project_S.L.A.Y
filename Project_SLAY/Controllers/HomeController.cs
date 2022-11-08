@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Project_S.L.A.Y.Controllers
+namespace Project_SLAY.Controllers
 {
     public class HomeController : Controller
     {

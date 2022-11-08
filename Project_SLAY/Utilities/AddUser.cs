@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.Text;
 
-using Project_S.L.A.Y.Models;
-using Project_S.L.A.Y.DAL;
+using Project_SLAY.Models;
+using Project_SLAY.DAL;
 
-namespace Project_S.L.A.Y.Utilities
+namespace Project_SLAY.Utilities
 {
     public static class AddUser
     {

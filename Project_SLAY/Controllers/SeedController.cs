@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-using Project_S.L.A.Y.Utilities;
-using Project_S.L.A.Y.Models;
-using Project_S.L.A.Y.DAL;
+using Project_SLAY.Utilities;
+using Project_SLAY.Models;
+using Project_SLAY.DAL;
 
-namespace Project_S.L.A.Y.Controllers
+namespace Project_SLAY.Controllers
 {
     public class SeedController : Controller
     {

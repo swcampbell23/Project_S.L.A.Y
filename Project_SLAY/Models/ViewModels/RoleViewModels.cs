@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
-using Project_S.L.A.Y.Utilities;
+using Project_SLAY.Utilities;
 
-namespace Project_S.L.A.Y.Models
+namespace Project_SLAY.Models
 {
     public class RoleEditModel
     {

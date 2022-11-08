@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Project_S.L.A.Y.Models
+namespace Project_SLAY.Models
 {
 
     public class Supplier

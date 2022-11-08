@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System;
-namespace Project_S.L.A.Y.Models
+namespace Project_SLAY.Models
 { 
     //NOTE: This is the view model used to allow the user to login
     //The user only needs teh email and password to login

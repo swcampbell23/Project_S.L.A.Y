@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 
-using Project_S.L.A.Y.Models;
-using Project_S.L.A.Y.Utilities;
+using Project_SLAY.Models;
+using Project_SLAY.Utilities;
 
-namespace Project_S.L.A.Y.DAL
+namespace Project_SLAY.DAL
 {
     //NOTE: This class definition references the user class for this project.  
     //If your User class is called something other than AppUser, you will need

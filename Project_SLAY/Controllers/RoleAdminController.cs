@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
-using Project_S.L.A.Y.Utilities;
-using Project_S.L.A.Y.Models;
+using Project_SLAY.Utilities;
+using Project_SLAY.Models;
 
-namespace Project_S.L.A.Y.Controllers
+namespace Project_SLAY.Controllers
 {
     //TODO: Uncomment this line once you have roles working correctly
     [Authorize(Roles = "Admin")]

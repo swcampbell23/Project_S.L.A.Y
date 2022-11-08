@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Project_S.L.A.Y.DAL;
-using Project_S.L.A.Y.Models;
+using Project_SLAY.DAL;
+using Project_SLAY.Models;
 using Microsoft.AspNetCore.Authorization;
 
-namespace Project_S.L.A.Y.Controllers
+namespace Project_SLAY.Controllers
 {
 
     [Authorize(Roles = "Admin")]

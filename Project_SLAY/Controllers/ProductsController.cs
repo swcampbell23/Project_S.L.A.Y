@@ -1,5 +1,5 @@
-using Project_S.L.A.Y.DAL;
-using Project_S.L.A.Y.Models;
+using Project_SLAY.DAL;
+using Project_SLAY.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Project_S.L.A.Y.Controllers
+namespace Project_SLAY.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class ProductsController : Controller

@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-using Project_S.L.A.Y.Models;
-using Project_S.L.A.Y.Utilities;
-using Project_S.L.A.Y.DAL;
+using Project_SLAY.Models;
+using Project_SLAY.Utilities;
+using Project_SLAY.DAL;
 
-namespace Project_S.L.A.Y.Seeding
+namespace Project_SLAY.Seeding
 {
     public static class SeedUsers
     {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Project_S.L.A.Y.Models
+namespace Project_SLAY.Models
 {
     public enum ProductTyoe { NewHardBack, NewPaperback, UsedHardBack, UsedPaperBack, Other }
 

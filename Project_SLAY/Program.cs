@@ -2,8 +2,8 @@
 using System.Globalization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
-using Campbell_Steven_HW5.DAL;
-using Campbell_Steven_HW5.Models;
+using Project_SLAY.DAL;
+using Project_SLAY.Models;
 
 //create a web application builder
 var builder = WebApplication.CreateBuilder(args);

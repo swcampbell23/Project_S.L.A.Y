@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 
-namespace Project_S.L.A.Y.Seeding
+namespace Project_SLAY.Seeding
 {
     public class SeedRoles
     {

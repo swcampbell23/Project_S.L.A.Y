@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Project_S.L.A.Y.DAL;
-using Project_S.L.A.Y.Models;
-using Project_S.L.A.Y.Utilities;
+using Project_SLAY.DAL;
+using Project_SLAY.Models;
+using Project_SLAY.Utilities;
 
-namespace Project_S.L.A.Y.Controllers
+namespace Project_SLAY.Controllers
 {
     [Authorize]
     public class AccountController : Controller

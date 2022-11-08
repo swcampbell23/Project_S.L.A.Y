@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 
-namespace Project_S.L.A.Y.Models
+namespace Project_SLAY.Models
 {
 
     public class OrderDetail

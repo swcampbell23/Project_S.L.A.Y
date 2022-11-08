@@ -1,9 +1,9 @@
-﻿using Project_S.L.A.Y.DAL;
+﻿using Project_SLAY.DAL;
 using System;
 using System.Linq;
 
 
-namespace Project_S.L.A.Y.Utilities
+namespace Project_SLAY.Utilities
 {
     public static class GenerateNextOrderNumber
     {
