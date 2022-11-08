@@ -1,4 +1,4 @@
-@model Project_SLAY.Models.Product
+@model Project_SLAY.Models.Account
 
 @{
     ViewData["Title"] = "Details";
@@ -50,7 +50,7 @@
             <tr>
                 <th>Supplier Name</th>
             </tr>
-            @foreach (Supplier supplier in Model.Suppliers)
+            @foreach (StockPortfolio supplier in Model.Suppliers)
             {
                 <tr>
                     <td>@supplier.SupplierName</td>

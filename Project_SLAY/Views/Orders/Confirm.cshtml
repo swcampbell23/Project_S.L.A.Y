@@ -1,4 +1,4 @@
-@model Order
+@model Transaction
 
 @{
     ViewData["Title"] = "Details";
@@ -46,7 +46,7 @@
         <th>Quantity</th>
         <th>Extended Price</th>
     </tr>
-    @foreach (OrderDetail rd in Model.OrderDetails)
+    @foreach (Stock rd in Model.OrderDetails)
     {
         <tr>
             <td>@Html.DisplayFor(ModelItem => rd.Product.ProductName)</td>

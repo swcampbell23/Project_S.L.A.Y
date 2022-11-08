@@ -28,7 +28,7 @@ namespace Project_SLAY.Controllers
             }
 
             //limit the list to only the order details that belong to this order
-            List<OrderDetail> rds = _context.OrderDetails
+            List<Stock> rds = _context.OrderDetails
                                           .Include(rd => rd.Product)
                                           .Where(rd => rd.Order.OrderID == orderID)
                                           .ToList();
@@ -40,10 +40,10 @@ namespace Project_SLAY.Controllers
         public IActionResult Create(int orderID)
         {
             //create a new instance of the RegistrationDetail class
-            OrderDetail rd = new OrderDetail();
+            Stock rd = new Stock();
 
             //find the registration that should be associated with this registration
-            Order dbOrder = _context.Orders.Find(orderID);
+            Transaction dbOrder = _context.Orders.Find(orderID);
 
             //set the new registration detail's registration equal to the registration you just found
             rd.Order = dbOrder;
@@ -60,7 +60,7 @@ namespace Project_SLAY.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(OrderDetail orderDetail, int SelectedProduct)
+        public async Task<IActionResult> Create(Stock orderDetail, int SelectedProduct)
         {
             //if user has not entered all fields, send them back to try again
             if (ModelState.IsValid == false)
@@ -70,7 +70,7 @@ namespace Project_SLAY.Controllers
             }
 
             //find the product to be associated with this order
-            Product dbProduct = _context.Products.Find(SelectedProduct);
+            Account dbProduct = _context.Products.Find(SelectedProduct);
 
             //set the order detail's product to be equal to the one we just found
             orderDetail.Product = dbProduct;
@@ -78,7 +78,7 @@ namespace Project_SLAY.Controllers
             //find the order on the database that has the correct order id
             //unfortunately, the HTTP request will not contain the entire order object, 
             //just the order id, so we have to find the actual object in the database
-            Order dbOrder= _context.Orders.Find(orderDetail.Order.OrderID);
+            Transaction dbOrder= _context.Orders.Find(orderDetail.Order.OrderID);
 
             //set the order on the order detail equal to the order that we just found
             orderDetail.Order = dbOrder;
@@ -119,7 +119,7 @@ namespace Project_SLAY.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, OrderDetail orderDetail)
+        public async Task<IActionResult> Edit(int id, Stock orderDetail)
         {
             //this is a security check to make sure they are editing the correct record
             if (id != orderDetail.OrderDetailID)
@@ -128,7 +128,7 @@ namespace Project_SLAY.Controllers
             }
 
             //create a new order detail
-            OrderDetail dbRD;
+            Stock dbRD;
             //if code gets this far, update the record
             try
             {
@@ -208,12 +208,12 @@ namespace Project_SLAY.Controllers
         private SelectList GetProductSelectList()
         {
             //create a list for all the products
-            List<Product> allProducts = _context.Products.ToList();
+            List<Account> allProducts = _context.Products.ToList();
 
             //the user MUST select a product, so you don't need a dummy option for no product
 
             //use the constructor on select list to create a new select list with the options
-            SelectList slAllProducts = new SelectList(allProducts, nameof(Product.ProductID), nameof(Product.ProductName));
+            SelectList slAllProducts = new SelectList(allProducts, nameof(Account.ProductID), nameof(Account.ProductName));
 
             return slAllProducts;
         }

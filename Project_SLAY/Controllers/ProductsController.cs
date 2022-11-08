@@ -42,7 +42,7 @@ namespace Project_SLAY.Controllers
 
             //find the Product in the database
             //be sure to include the relevant navigational data
-            Product product = await _context.Products
+            Account product = await _context.Products
                 .Include(c => c.Suppliers)
                 .FirstOrDefaultAsync(m => m.ProductID == id);
 
@@ -65,7 +65,7 @@ namespace Project_SLAY.Controllers
         // POST: Products/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Product product, int[] SelectedSuppliers)
+        public async Task<IActionResult> Create(Account product, int[] SelectedSuppliers)
         {
             //This code has been modified so that if the model state is not valid
             //we immediately go to the "sad path" and give the user a chance to try again
@@ -89,7 +89,7 @@ namespace Project_SLAY.Controllers
             foreach (int supplierID in SelectedSuppliers)
             {
                 //find the department associated with that id
-                Supplier dbSupplier = _context.Suppliers.Find(supplierID);
+                StockPortfolio dbSupplier = _context.Suppliers.Find(supplierID);
 
                 //add the department to the Product's list of departments and save changes
                 product.Suppliers.Add(dbSupplier);
@@ -112,7 +112,7 @@ namespace Project_SLAY.Controllers
 
             //find the Product in the database
             //be sure to change the data type to Product instead of 'var'
-            Product product = await _context.Products.Include(c => c.Suppliers)
+            Account product = await _context.Products.Include(c => c.Suppliers)
                                            .FirstOrDefaultAsync(c => c.ProductID == id);
 
             //if the Product does not exist in the database, then show the user
@@ -130,7 +130,7 @@ namespace Project_SLAY.Controllers
         // POST: Products/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, Product product, int[] SelectedSuppliers)
+        public IActionResult Edit(int id, Account product, int[] SelectedSuppliers)
         {
             //this is a security check to see if the user is trying to modify
             //a different record.  Show an error message
@@ -150,17 +150,17 @@ namespace Project_SLAY.Controllers
             {
                 //Find the Product to edit in the database and include relevant 
                 //navigational properties
-                Product dbProduct = _context.Products
+                Account dbProduct = _context.Products
                     .Include(c => c.Suppliers)
                     .FirstOrDefault(c => c.ProductID == product.ProductID);
 
                 //create a list of suppliers that need to be removed
-                List<Supplier> SuppliersToRemove = new List<Supplier>();
+                List<StockPortfolio> SuppliersToRemove = new List<StockPortfolio>();
 
                 //find the Suppliers that should no longer be selected because the
                 //user removed them
                 //remember, SelectedSuppliers = the list from the HTTP request (listbox)
-                foreach (Supplier supplier in dbProduct.Suppliers)
+                foreach (StockPortfolio supplier in dbProduct.Suppliers)
                 {
                     //see if the new list contains the department id from the old list
                     if (SelectedSuppliers.Contains(supplier.SupplierID) == false)//this department is not on the new list
@@ -172,7 +172,7 @@ namespace Project_SLAY.Controllers
                 //remove the departments you found in the list above
                 //this has to be 2 separate steps because you can't iterate (loop)
                 //over a list that you are removing things from
-                foreach (Supplier supplier in SuppliersToRemove)
+                foreach (StockPortfolio supplier in SuppliersToRemove)
                 {
                     //remove this Product department from the Product's list of departments
                     dbProduct.Suppliers.Remove(supplier);
@@ -185,7 +185,7 @@ namespace Project_SLAY.Controllers
                     if (dbProduct.Suppliers.Any(d => d.SupplierID == SupplierID) == false)//this department is NOT already associated with this Product
                     {
                         //Find the associated department in the database
-                        Supplier dbSupplier = _context.Suppliers.Find(SupplierID);
+                        StockPortfolio dbSupplier = _context.Suppliers.Find(SupplierID);
 
                         //Add the department to the Product's list of departments
                         dbProduct.Suppliers.Add(dbSupplier);
@@ -212,7 +212,7 @@ namespace Project_SLAY.Controllers
         {
             //Create a new list of departments and get the list of the departments
             //from the database
-            List<Supplier> allSuppliers = _context.Suppliers.ToList();
+            List<StockPortfolio> allSuppliers = _context.Suppliers.ToList();
 
             //Multi-select lists do not require a selection, so you don't need 
             //to add a dummy record like you do for select lists
@@ -224,18 +224,18 @@ namespace Project_SLAY.Controllers
             return mslAllSuppliers;
         }
 
-        private MultiSelectList GetSupplierSelectList(Product product)
+        private MultiSelectList GetSupplierSelectList(Account product)
         {
             //Create a new list of departments and get the list of the departments
             //from the database
-            List<Supplier> allSuppliers = _context.Suppliers.ToList();
+            List<StockPortfolio> allSuppliers = _context.Suppliers.ToList();
 
             //loop through the list of Product departments to find a list of department ids
             //create a list to store the department ids
             List<Int32> selectedSupplierIDs = new List<Int32>();
 
             //Loop through the list to find the DepartmentIDs
-            foreach (Supplier associatedSupplier in product.Suppliers)
+            foreach (StockPortfolio associatedSupplier in product.Suppliers)
             {
                 selectedSupplierIDs.Add(associatedSupplier.SupplierID);
             }

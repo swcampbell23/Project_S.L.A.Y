@@ -22,9 +22,9 @@ namespace Project_SLAY.DAL
             base.OnModelCreating(builder);
         }
 
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Supplier> Suppliers { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Account> Products { get; set; }
+        public DbSet<StockPortfolio> Suppliers { get; set; }
+        public DbSet<Transaction> Orders { get; set; }
+        public DbSet<Stock> OrderDetails { get; set; }
     }
 }

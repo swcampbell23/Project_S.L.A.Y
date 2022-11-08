@@ -1,4 +1,4 @@
-@model Project_SLAY.Models.Supplier
+@model Project_SLAY.Models.StockPortfolio
 
 @{
     ViewData["Title"] = "Details";
@@ -35,7 +35,7 @@
     <tr>
         <th>Product Name</th>
     </tr>
-    @foreach (Product product in Model.Products)
+    @foreach (Account product in Model.Products)
     {
         <tr>
             <td>@Html.DisplayFor(modelItem => product.ProductName)</td>

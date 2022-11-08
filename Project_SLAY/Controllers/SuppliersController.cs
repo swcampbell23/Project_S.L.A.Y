@@ -39,7 +39,7 @@ namespace Project_SLAY.Controllers
             }
 
             //find the supplier in the database
-            Supplier supplier = await _context.Suppliers
+            StockPortfolio supplier = await _context.Suppliers
                 .Include(d => d.Products)
                 .FirstOrDefaultAsync(m => m.SupplierID == id);
 
@@ -64,7 +64,7 @@ namespace Project_SLAY.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SupplierID,SupplierName,Email,PhoneNumber")] Supplier supplier)
+        public async Task<IActionResult> Create([Bind("SupplierID,SupplierName,Email,PhoneNumber")] StockPortfolio supplier)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +96,7 @@ namespace Project_SLAY.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SupplierID,SupplierName,Email,PhoneNumber")] Supplier supplier)
+        public async Task<IActionResult> Edit(int id, [Bind("SupplierID,SupplierName,Email,PhoneNumber")] StockPortfolio supplier)
         {
             if (id != supplier.SupplierID)
             {

@@ -29,7 +29,7 @@ namespace Project_SLAY.Controllers
         public IActionResult Index()
         {
             //Set up a list of registrations to display
-            List<Order> orders;
+            List<Transaction> orders;
             if (User.IsInRole("Admin"))
             {
                 orders = _context.Orders
@@ -58,7 +58,7 @@ namespace Project_SLAY.Controllers
             }
 
             //find the order in the database
-            Order order = await _context.Orders
+            Transaction order = await _context.Orders
                                               .Include(r => r.OrderDetails)
                                               .ThenInclude(r => r.Product)
                                               .Include(r => r.User)
@@ -90,7 +90,7 @@ namespace Project_SLAY.Controllers
             }
 
             //find the product in the database
-            Product dbProduct = _context.Products.Find(productID);
+            Account dbProduct = _context.Products.Find(productID);
 
             //make sure the product exists in the database
             if (dbProduct == null)
@@ -99,13 +99,13 @@ namespace Project_SLAY.Controllers
             }
 
             //find the cart for this customer
-            Order ord = _context.Orders.FirstOrDefault(r => r.User.UserName == User.Identity.Name && r.Status == OrderStatus.Pending);
+            Transaction ord = _context.Orders.FirstOrDefault(r => r.User.UserName == User.Identity.Name && r.Status == OrderStatus.Pending);
 
             //if this order is null, there isn't one yet, so create it
             if (ord == null)
             {
                 //create a new object
-                ord = new Order();
+                ord = new Transaction();
 
                 //update the generated properties of the order
                 ord.Status = OrderStatus.Pending;
@@ -119,7 +119,7 @@ namespace Project_SLAY.Controllers
             }
 
             //now create the registration detail
-            OrderDetail rd = new OrderDetail();
+            Stock rd = new Stock();
 
             //add the course to the registration detail
             rd.Product = dbProduct;
@@ -152,7 +152,7 @@ namespace Project_SLAY.Controllers
             }
 
             //find the order in the database, and be sure to include details
-            Order order = _context.Orders
+            Transaction order = _context.Orders
                                        .Include(r => r.OrderDetails)
                                        .ThenInclude(r => r.Product)
                                        .Include(r => r.User)
@@ -183,7 +183,7 @@ namespace Project_SLAY.Controllers
         // POST: Orders/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Order order)
+        public async Task<IActionResult> Edit(int id, Transaction order)
         {
             //this is a security measure to make sure the user is editing the correct order
             if (id != order.OrderID)
@@ -201,7 +201,7 @@ namespace Project_SLAY.Controllers
             try
             {
                 //find the record in the database
-                Order dbOrder = _context.Orders.Find(order.OrderID);
+                Transaction dbOrder = _context.Orders.Find(order.OrderID);
 
                 //update the notes
                 dbOrder.OrderNotes = order.OrderNotes;
@@ -225,7 +225,7 @@ namespace Project_SLAY.Controllers
         {
             if (User.IsInRole("Customer"))
             {
-                Order ord = new Order();
+                Transaction ord = new Transaction();
                 ord.User = await _userManager.FindByNameAsync(User.Identity.Name);
                 return View(ord);
             }
@@ -240,7 +240,7 @@ namespace Project_SLAY.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("User, OrderNotes")] Order order)
+        public async Task<IActionResult> Create([Bind("User, OrderNotes")] Transaction order)
         {
             //Find the next registration number from the utilities class
             order.OrderNumber = Utilities.GenerateNextOrderNumber.GetNextOrderNumber(_context);
@@ -273,7 +273,7 @@ namespace Project_SLAY.Controllers
                 return View("SelectCustomerForOrder");
             }
 
-            Order ord = new Order();
+            Transaction ord = new Transaction();
             ord.User = await _userManager.FindByNameAsync(SelectedCustomer);
             return View("Create", ord);
         }
@@ -289,7 +289,7 @@ namespace Project_SLAY.Controllers
             }
 
             //find the registration in the database
-            Order order = await _context.Orders
+            Transaction order = await _context.Orders
                                               .Include(r => r.OrderDetails)
                                               .ThenInclude(r => r.Product)
                                               .Include(r => r.User)
@@ -313,7 +313,7 @@ namespace Project_SLAY.Controllers
 
         public async Task<IActionResult> Confirm(int? id)
         {
-            Order dbReg = await _context.Orders.FindAsync(id);
+            Transaction dbReg = await _context.Orders.FindAsync(id);
             dbReg.Status = OrderStatus.Completed;
             _context.Update(dbReg);
             _context.SaveChanges();
