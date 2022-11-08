@@ -40,5 +40,7 @@ namespace Project_SLAY.Models
         [Required(ErrorMessage = "Employee Type is Required!")]
         public String EmployeeType { get; set; }
 
+        // hey luke
+
     }
 }
