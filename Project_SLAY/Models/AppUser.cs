@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Project_SLAY.Models
 {
     public enum IsActive { Active, Inactive }
+
     public class AppUser : IdentityUser
     {
         [Display(Name = "First Name")]
@@ -30,10 +31,14 @@ namespace Project_SLAY.Models
         public String ZipCode { get; set; }
 
         [Display(Name = "Date of Birth")]
-        public String DOB { get; set; }
+        public DateTime DOB { get; set; }
+
         public IsActive IsActive { get; set; }
+
         public List<Account> Accounts { get; set; }
+
         public StockPortfolio StockPortfolio { get; set; }
+
         public AppUser()
         {
             if (Accounts == null)

@@ -5,6 +5,10 @@
 <h1>Welcome to Our Bookstore!</h1>
 
 <a asp-action="Index" asp-controller="Products" class="btn btn-success">View Our Products</a>
+<a asp-action="SeedUsers" asp-controller="Seed" class="btn btn-success">Seed Users</a>
+<a asp-action="SeedRoles" asp-controller="Seed" class="btn btn-success">Seed Roles</a>
+
+
 
 @if (User.Identity.IsAuthenticated)
 {

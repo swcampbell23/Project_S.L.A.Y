@@ -22,9 +22,14 @@ namespace Project_SLAY.DAL
             base.OnModelCreating(builder);
         }
 
-        public DbSet<Account> Products { get; set; }
-        public DbSet<StockPortfolio> Suppliers { get; set; }
-        public DbSet<Transaction> Orders { get; set; }
-        public DbSet<Stock> OrderDetails { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<StockPortfolio> StockPortfolios { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<Stock> Stocks { get; set; }
+        public DbSet<Dispute> Disputes { get; set; }
+        public DbSet<StockTransaction> StockTransactions { get; set; }
+        public DbSet<StockType> StockTypes { get; set; }
+
+
     }
 }
