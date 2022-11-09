@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Project_SLAY.Models
 {
-    public enum AccountType { Checkings, Savings, IRA }
+    public enum AccountType { Checking, Savings, IRA }
 
     public class Account
     {
