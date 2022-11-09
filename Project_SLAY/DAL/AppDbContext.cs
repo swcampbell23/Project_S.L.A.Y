@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 
 using Project_SLAY.Models;
 using Project_SLAY.Utilities;
+using System.Reflection.Emit;
 
 namespace Project_SLAY.DAL
 {
@@ -20,6 +21,16 @@ namespace Project_SLAY.DAL
             builder.HasPerformanceLevel("Basic");
             builder.HasServiceTier("Basic");
             base.OnModelCreating(builder);
+
+            // Add the shadow property to the model
+            builder.Entity<StockPortfolio>()
+            .Property<String>("AppUserForeignKey");
+
+            //this code configures the 1:1 relationship between AppUser and StockPortfolio
+            builder.Entity<AppUser>()
+            .HasOne(sp => sp.StockPortfolio)
+            .WithOne(u => u.User)
+            .HasForeignKey<StockPortfolio>("AppUserForeignKey");
         }
 
         public DbSet<Account> Accounts { get; set; }
