@@ -7,6 +7,7 @@ namespace Project_SLAY.Models
     public class StockPortfolio
     {
         public Int32 StockPortfolioID { get; set; }
+        public Int64 AccountNo { get; set; }
         public String PortfolioName { get; set; }
         public Decimal Gains { get; set; }
         public Decimal Bonuses { get; set; }

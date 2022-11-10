@@ -100,15 +100,6 @@ namespace Project_SLAY.Controllers
                 //Add the outer message
                 errorList.Add(ex.Message);
 
-                //Add the message from the inner exception
-                errorList.Add(ex.InnerException.Message);
-
-                //Add additional inner exception messages, if there are any
-                if (ex.InnerException.InnerException != null)
-                {
-                    errorList.Add(ex.InnerException.InnerException.Message);
-                }
-
                 return View("Error", errorList);
             }
 

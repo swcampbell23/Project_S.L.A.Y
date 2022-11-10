@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Project_SLAY.DAL;
 using Project_SLAY.Models;
 using Project_SLAY.Utilities;
@@ -13,7 +14,7 @@ namespace Project_SLAY.Seeding
 			//Start For Loop
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000002),
+				AccountNo = Convert.ToInt64(2290000002),
 				User = context.Users.FirstOrDefault(l => l.UserName == "willsheff@email.com"),
 				AccountName = "William's Savings",
 				AccountType = AccountType.Savings,
@@ -21,7 +22,7 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000003),
+				AccountNo = Convert.ToInt64(2290000003),
 				User = context.Users.FirstOrDefault(l => l.UserName == "smartinmartin.Martin@aool.com"),
 				AccountName = "Gregory's Checking",
 				AccountType = AccountType.Checking,
@@ -29,7 +30,7 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000004),
+				AccountNo = Convert.ToInt64(2290000004),
 				User = context.Users.FirstOrDefault(l => l.UserName == "avelasco@yaho.com"),
 				AccountName = "Allen's Checking",
 				AccountType = AccountType.Checking,
@@ -37,7 +38,7 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000005),
+				AccountNo = Convert.ToInt64(2290000005),
 				User = context.Users.FirstOrDefault(l => l.UserName == "rwood@voyager.net"),
 				AccountName = "Reagan's Checking",
 				AccountType = AccountType.Checking,
@@ -45,7 +46,7 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000006),
+				AccountNo = Convert.ToInt64(2290000006),
 				User = context.Users.FirstOrDefault(l => l.UserName == "nelson.Kelly@aool.com"),
 				AccountName = "Kelly's Savings",
 				AccountType = AccountType.Savings,
@@ -53,7 +54,7 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000007),
+				AccountNo = Convert.ToInt64(2290000007),
 				User = context.Users.FirstOrDefault(l => l.UserName == "erynrice@aool.com"),
 				AccountName = "Eryn's Checking",
 				AccountType = AccountType.Checking,
@@ -61,7 +62,7 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000008),
+				AccountNo = Convert.ToInt64(2290000008),
 				User = context.Users.FirstOrDefault(l => l.UserName == "westj@pioneer.net"),
 				AccountName = "Jake's Savings",
 				AccountType = AccountType.Savings,
@@ -69,7 +70,7 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000010),
+				AccountNo = Convert.ToInt64(2290000010),
 				User = context.Users.FirstOrDefault(l => l.UserName == "jeff@ggmail.com"),
 				AccountName = "Jeffrey's Savings",
 				AccountType = AccountType.Savings,
@@ -77,7 +78,7 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000012),
+				AccountNo = Convert.ToInt64(2290000012),
 				User = context.Users.FirstOrDefault(l => l.UserName == "erynrice@aool.com"),
 				AccountName = "Eryn's Checking 2",
 				AccountType = AccountType.Checking,
@@ -85,7 +86,7 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000013),
+				AccountNo = Convert.ToInt64(2290000013),
 				User = context.Users.FirstOrDefault(l => l.UserName == "mackcloud@pimpdaddy.com"),
 				AccountName = "Jennifer's IRA",
 				AccountType = AccountType.IRA,
@@ -93,7 +94,7 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000014),
+				AccountNo = Convert.ToInt64(2290000014),
 				User = context.Users.FirstOrDefault(l => l.UserName == "ss34@ggmail.com"),
 				AccountName = "Sarah's Savings",
 				AccountType = AccountType.Savings,
@@ -101,7 +102,7 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000015),
+				AccountNo = Convert.ToInt64(2290000015),
 				User = context.Users.FirstOrDefault(l => l.UserName == "tanner@ggmail.com"),
 				AccountName = "Jeremy's Savings",
 				AccountType = AccountType.Savings,
@@ -109,7 +110,7 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000016),
+				AccountNo = Convert.ToInt64(2290000016),
 				User = context.Users.FirstOrDefault(l => l.UserName == "liz@ggmail.com"),
 				AccountName = "Elizabeth's Savings",
 				AccountType = AccountType.Savings,
@@ -117,7 +118,7 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000017),
+				AccountNo = Convert.ToInt64(2290000017),
 				User = context.Users.FirstOrDefault(l => l.UserName == "ra@aoo.com"),
 				AccountName = "Allen's IRA",
 				AccountType = AccountType.IRA,
@@ -125,7 +126,7 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000019),
+				AccountNo = Convert.ToInt64(2290000019),
 				User = context.Users.FirstOrDefault(l => l.UserName == "mclarence@aool.com"),
 				AccountName = "Clarence's Savings",
 				AccountType = AccountType.Savings,
@@ -133,7 +134,7 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000020),
+				AccountNo = Convert.ToInt64(2290000020),
 				User = context.Users.FirstOrDefault(l => l.UserName == "ss34@ggmail.com"),
 				AccountName = "Sarah's Checking",
 				AccountType = AccountType.Checking,
@@ -141,7 +142,7 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000021),
+				AccountNo = Convert.ToInt64(2290000021),
 				User = context.Users.FirstOrDefault(l => l.UserName == "cbaker@freezing.co.uk"),
 				AccountName = "CBaker's Checking",
 				AccountType = AccountType.Checking,
@@ -149,7 +150,7 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000022),
+				AccountNo = Convert.ToInt64(2290000022),
 				User = context.Users.FirstOrDefault(l => l.UserName == "cbaker@freezing.co.uk"),
 				AccountName = "CBaker's Savings",
 				AccountType = AccountType.Savings,
@@ -157,7 +158,7 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000023),
+				AccountNo = Convert.ToInt64(2290000023),
 				User = context.Users.FirstOrDefault(l => l.UserName == "cbaker@freezing.co.uk"),
 				AccountName = "CBaker's IRA",
 				AccountType = AccountType.IRA,
@@ -165,7 +166,7 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000025),
+				AccountNo = Convert.ToInt64(2290000025),
 				User = context.Users.FirstOrDefault(l => l.UserName == "chaley@thug.com"),
 				AccountName = "C-dawg's Checking",
 				AccountType = AccountType.Checking,
@@ -173,7 +174,7 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000026),
+				AccountNo = Convert.ToInt64(2290000026),
 				User = context.Users.FirstOrDefault(l => l.UserName == "chaley@thug.com"),
 				AccountName = "C-dawg's Savings",
 				AccountType = AccountType.Savings,
@@ -181,13 +182,55 @@ namespace Project_SLAY.Seeding
 			});
 			AllAccounts.Add(new Account
 			{
-				AccountNo = Convert.ToInt32(2290000027),
+				AccountNo = Convert.ToInt64(2290000027),
 				User = context.Users.FirstOrDefault(l => l.UserName == "mgar@aool.com"),
 				AccountName = "Margaret's IRA",
 				AccountType = AccountType.IRA,
 				Balance = 3500m,
 			});
+            //create some counters to help debug problems
+            Int32 intAccountID = 0;
+            String strAccountName = "Start";
 
+            //loop through the list to add or update the Repository
+            try
+            {
+                foreach (Account seedAccount in AllAccounts)
+                {
+                    //update the counters
+                    intAccountID = seedAccount.AccountID;
+                    strAccountName = seedAccount.AccountName;
+                    //see if the Repository is already in the database using the RepositoryName
+                    Account dbAccount = context.Accounts.FirstOrDefault(r => r.AccountName == seedAccount.AccountName);
+
+                    //if repository is null, repository is not in database
+                    if (dbAccount == null)
+                    {
+                        //Add the repository to the database
+                        context.Accounts.Add(seedAccount);
+                        context.SaveChanges();
+                    }
+                    else //the repository is in the database - reset all fields except name
+                    {
+                        dbAccount.AccountName = seedAccount.AccountName;
+                        dbAccount.AccountNo = seedAccount.AccountNo;
+                        dbAccount.AccountType = seedAccount.AccountType;
+                        dbAccount.Balance = seedAccount.Balance;
+						dbAccount.User = seedAccount.User;
+                        context.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex) //throw error if there is a problem in the database
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.Append("There was a problem adding the Account with the title: ");
+                msg.Append(strAccountName);
+                msg.Append(" (AccountID: ");
+                msg.Append(intAccountID);
+                msg.Append(")");
+                throw new Exception(msg.ToString(), ex);
+            }
         }
-	}
+    }
 }

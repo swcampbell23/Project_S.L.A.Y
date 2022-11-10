@@ -11,7 +11,7 @@ namespace Project_SLAY.Models
     public class Account
     {
         public Int32 AccountID { get; set; }
-        public Int32 AccountNo { get; set; }
+        public Int64 AccountNo { get; set; }
         public String AccountName { get; set; }
         [Display(Name = "Balance:")]
         [DisplayFormat(DataFormatString = "{0:c}")]
