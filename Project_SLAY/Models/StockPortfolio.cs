@@ -13,6 +13,7 @@ namespace Project_SLAY.Models
         public Decimal Bonuses { get; set; }
         public IsBalanced IsBalanced { get; set; }
         public AppUser User { get; set; }
+        public Decimal Balance { get; set; }
         public List<StockTransaction> Transactions { get; set; }
 
         public StockPortfolio()
