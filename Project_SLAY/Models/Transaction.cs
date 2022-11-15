@@ -9,6 +9,8 @@ namespace Project_SLAY.Models
     public class Transaction
     {
         public Int32 TransactionID { get; set; }
+        public Int32 TransactionNo { get; set; }
+        [DisplayFormat(DataFormatString = "{0:c}")]
         public Decimal Amount { get; set; }
         public Account Account { get; set; }
         public DateTime Date { get; set; }
