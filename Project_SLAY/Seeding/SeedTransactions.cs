@@ -10,143 +10,149 @@ namespace Project_SLAY.Seeding
 	{
 		public static void SeedAllTransactions(AppDbContext context)
 		{
-		List<Transaction> AllTransactions= new List<Transaction>();
+		List<Transaction> AllTransactions = new List<Transaction>();
 		AllTransactions.Add(new Transaction
 		{
-				TransactionID = 1,
+			TransactionNo= Convert.ToInt32(1),
 				TransactionType = TransactionType.Deposit,
-				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000021)), 
+				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000021)),
 				Amount = 4000m,
-				Date = new DateTime(2022, 1, 15),
-				ApprovedType = ApprovedType.Yes,
 				Notes = "",
+				ApprovedType = ApprovedType.Yes,
+				Date = new DateTime(2022,1,15),
 		});
 		AllTransactions.Add(new Transaction
 		{
-				TransactionID = 2,
+			TransactionNo= Convert.ToInt32(2),
 				TransactionType = TransactionType.Deposit,
-				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000022)), 
+				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000022)),
 				Amount = 2200m,
-				Date = new DateTime(2022, 3, 5),
-				ApprovedType = ApprovedType.Yes,
 				Notes = "This transaction went so well! I will be using this bank again for sure!!",
+				ApprovedType = ApprovedType.Yes,
+				Date = new DateTime(2022,3,5),
 		});
 		AllTransactions.Add(new Transaction
 		{
-				TransactionID = 3,
+			TransactionNo= Convert.ToInt32(3),
 				TransactionType = TransactionType.Deposit,
-				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000022)), 
+				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000022)),
 				Amount = 6000m,
-				Date = new DateTime(2022, 3, 9),
-				ApprovedType = ApprovedType.Yes,
 				Notes = "",
-		});
-		AllTransactions.Add(new Transaction
-		{
-				TransactionID = 4,
-				TransactionType = TransactionType.Withdraw,
-				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000022)), 
-				Amount = 1200m,
-				Date = new DateTime(2022, 4, 14),
 				ApprovedType = ApprovedType.Yes,
-				Notes = "Jacob Foster has a GPA of 2.63. LOL",
+				Date = new DateTime(2022,3,9),
 		});
 		AllTransactions.Add(new Transaction
 		{
-				TransactionID = 5,
+			TransactionNo= Convert.ToInt32(4),
 				TransactionType = TransactionType.Withdraw,
-				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000022)), 
+				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000022)),
+				Amount = 1200m,
+				Notes = "Jacob Foster has a GPA of 2.63. LOL",
+				ApprovedType = ApprovedType.Yes,
+				Date = new DateTime(2022,4,14),
+		});
+		AllTransactions.Add(new Transaction
+		{
+			TransactionNo= Convert.ToInt32(5),
+				TransactionType = TransactionType.Withdraw,
+				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000022)),
 				Amount = 352m,
-				Date = new DateTime(2022, 4, 21),
-				ApprovedType = ApprovedType.Yes,
 				Notes = "Longhorn Bank is my favorite bank! I couldn't dream of putting my money anywhere else.",
+				ApprovedType = ApprovedType.Yes,
+				Date = new DateTime(2022,4,21),
 		});
 		AllTransactions.Add(new Transaction
 		{
-				TransactionID = 6,
+			TransactionNo= Convert.ToInt32(6),
 				TransactionType = TransactionType.Deposit,
-				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000023)), 
+				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000023)),
 				Amount = 1500m,
-				Date = new DateTime(2022, 3, 8),
-				ApprovedType = ApprovedType.Yes,
 				Notes = "",
+				ApprovedType = ApprovedType.Yes,
+				Date = new DateTime(2022,3,8),
 		});
 		AllTransactions.Add(new Transaction
 		{
-				TransactionID = 7,
+			TransactionNo= Convert.ToInt32(7),
 				TransactionType = TransactionType.Deposit,
-				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000021)), 
+				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000021)),
 				Amount = 3000m,
-				Date = new DateTime(2022, 4, 20),
-				ApprovedType = ApprovedType.Yes,
 				Notes = "",
+				ApprovedType = ApprovedType.Yes,
+				Date = new DateTime(2022,4,20),
 		});
 		AllTransactions.Add(new Transaction
 		{
-				TransactionID = 8,
+			TransactionNo= Convert.ToInt32(8),
 				TransactionType = TransactionType.Withdraw,
-				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000021)), 
+				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000021)),
 				Amount = 578.12m,
-				Date = new DateTime(2022, 4, 19),
-				ApprovedType = ApprovedType.Yes,
 				Notes = "K project snack expenses",
-		});
-		AllTransactions.Add(new Transaction
-		{
-				TransactionID = 9,
-				TransactionType = TransactionType.Withdraw,
-				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000026)), 
-				Amount = 52m,
-				Date = new DateTime(2022, 4, 29),
 				ApprovedType = ApprovedType.Yes,
-				Notes = "",
+				Date = new DateTime(2022,4,19),
 		});
 		AllTransactions.Add(new Transaction
 		{
-				TransactionID = 7,
+			TransactionNo= Convert.ToInt32(9),
 				TransactionType = TransactionType.Withdraw,
-				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000024)), 
+				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000026)),
+				Amount = 52m,
+				Notes = "",
+				ApprovedType = ApprovedType.Yes,
+				Date = new DateTime(2022,4,29),
+		});
+		AllTransactions.Add(new Transaction
+		{
+			TransactionNo= Convert.ToInt32(7),
+				TransactionType = TransactionType.Withdraw,
+				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000024)),
 				Amount = 3000m,
-				Date = new DateTime(2022, 4, 20),
-				ApprovedType = ApprovedType.Yes,
 				Notes = "",
+				ApprovedType = ApprovedType.Yes,
+				Date = new DateTime(2022,4,20),
 		});
 		AllTransactions.Add(new Transaction
 		{
-				TransactionID = 4,
+			TransactionNo= Convert.ToInt32(4),
 				TransactionType = TransactionType.Deposit,
-				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000021)), 
+				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000021)),
 				Amount = 1200m,
-				Date = new DateTime(2022, 4, 14),
-				ApprovedType = ApprovedType.Yes,
 				Notes = "Jacob Foster has a GPA of 2.63. LOL",
+				ApprovedType = ApprovedType.Yes,
+				Date = new DateTime(2022,4,14),
 		});
 		AllTransactions.Add(new Transaction
 		{
-				TransactionID = 9,
+			TransactionNo= Convert.ToInt32(9),
 				TransactionType = TransactionType.Deposit,
-				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000025)), 
+				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000025)),
 				Amount = 52m,
-				Date = new DateTime(2022, 4, 29),
-				ApprovedType = ApprovedType.Yes,
 				Notes = "",
+				ApprovedType = ApprovedType.Yes,
+				Date = new DateTime(2022,4,29),
 		});
 		Int32 intTransactionID = 0;
 		try
 		{
-			foreach (Transaction seedTransaction in AllTransactions)
+			foreach (Transaction SeedTransactions in AllTransactions)
 			{
-				intTransactionID = seedTransaction.TransactionID;
-				Transaction dbTransaction = context.Transactions.FirstOrDefault(r => r.Account == seedTransaction.Account);
+				intTransactionID = SeedTransactions.TransactionID;
+				Transaction dbTransaction = context.Transactions.FirstOrDefault(r => r.TransactionNo == SeedTransactions.TransactionNo);
 				if (dbTransaction == null)
 				{
-					context.Transactions.Add(seedTransaction);
+					context.Transactions.Add(SeedTransactions);
 					context.SaveChanges();
 				}
 				else
 				{
-					dbTransaction.Account = seedTransaction.Account;
-					context.SaveChanges();
+					dbTransaction.TransactionNo = SeedTransactions.TransactionNo;
+					dbTransaction.TransactionType = SeedTransactions.TransactionType;
+					dbTransaction.Account = SeedTransactions.Account;
+					dbTransaction.Amount = SeedTransactions.Amount;
+                    dbTransaction.Notes = SeedTransactions.Notes;
+					dbTransaction.ApprovedType = SeedTransactions.ApprovedType;
+                    dbTransaction.Date= SeedTransactions.Date;
+                    context.SaveChanges();
 				}
 			}
 		}

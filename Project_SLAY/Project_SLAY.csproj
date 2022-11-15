@@ -28,4 +28,10 @@
   <ItemGroup>
     <Folder Include="Models\ViewModels\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Views\Account\ChangePassword.cshtml" />
+    <None Include="Views\Account\Index.cshtml" />
+    <None Include="Views\Account\Login.cshtml" />
+    <None Include="Views\Account\Register.cshtml" />
+  </ItemGroup>
 </Project>
