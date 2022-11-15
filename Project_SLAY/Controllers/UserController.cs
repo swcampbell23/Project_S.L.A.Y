@@ -11,14 +11,14 @@ using Project_SLAY.Utilities;
 namespace Project_SLAY.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class UserController : Controller
     {
         private readonly SignInManager<AppUser> _signInManager;
         private readonly UserManager<AppUser> _userManager;
         private readonly PasswordValidator<AppUser> _passwordValidator;
         private readonly AppDbContext _context;
 
-        public AccountController(AppDbContext appDbContext, UserManager<AppUser> userManager, SignInManager<AppUser> signIn)
+        public UserController(AppDbContext appDbContext, UserManager<AppUser> userManager, SignInManager<AppUser> signIn)
         {
             _context = appDbContext;
             _userManager = userManager;

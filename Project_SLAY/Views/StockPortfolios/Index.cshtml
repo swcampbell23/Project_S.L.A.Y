@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Project_SLAY.Models.StockPortfolio>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PortfolioName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gains)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bonuses)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsBalanced)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Balance)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PortfolioName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gains)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bonuses)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsBalanced)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Balance)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StockPortfolioID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StockPortfolioID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StockPortfolioID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
