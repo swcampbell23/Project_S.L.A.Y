@@ -194,6 +194,28 @@ namespace Project_SLAY.Controllers
             //this is the happy path - seeding worked!
             return View("Confirm");
         }
+
+        public async Task<IActionResult> SeedDisputes()
+        {
+            try
+            {
+                //call the method to seed the users
+                Seeding.SeedDisputes.SeedAllDisputes(_context);
+            }
+            catch (Exception ex)
+            {
+                //add the error messages to a list of starings
+                List<String> errorList = new List<String>();
+
+                //Add the outer message
+                errorList.Add(ex.Message);
+
+                return View("Error", errorList);
+            }
+
+            //this is the happy path - seeding worked!
+            return View("Confirm");
+        }
     }
 }
 
