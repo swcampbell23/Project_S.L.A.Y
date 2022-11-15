@@ -1,0 +1,52 @@
+﻿<h1>Welcome to your Home Page!</h1>
+
+@model IEnumerable<Project_SLAY.Models.Account>
+
+@{
+    ViewData["Title"] = "HomePage";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Balance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Balance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountType)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.AccountID">Details</a> |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+                    Buttons: account application, stock portfolios, transaction page, stock transaction page
