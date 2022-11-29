@@ -23,14 +23,14 @@ namespace Project_SLAY.Seeding
 				AccountNo = Convert.ToInt64(2290000009),
 				User = context.Users.FirstOrDefault(l => l.UserName == "mb@aool.com"),
 				PortfolioName = "Michelle's Stock",
-				Balance = 0m,
+				Balance = 8888.88m,
 			});
 			AllStockPortfolios.Add(new StockPortfolio
 			{
 				AccountNo = Convert.ToInt64(2290000011),
 				User = context.Users.FirstOrDefault(l => l.UserName == "nelson.Kelly@aool.com"),
 				PortfolioName = "Kelly's Stock",
-				Balance = 0m,
+				Balance = 420m,
 			});
 			AllStockPortfolios.Add(new StockPortfolio
 			{
@@ -44,7 +44,7 @@ namespace Project_SLAY.Seeding
 				AccountNo = Convert.ToInt64(2290000024),
 				User = context.Users.FirstOrDefault(l => l.UserName == "cbaker@freezing.co.uk"),
 				PortfolioName = "CBaker's Stock",
-				Balance = 1m,
+				Balance = 6900m,
 			});
 			Int32 intStockPortfolioID = 0;
 			String strStockPortfolioName = "Start";

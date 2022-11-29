@@ -18,6 +18,13 @@ namespace Project_SLAY.Seeding
 				Amount = 300m,
 				Comments = "I don�t remember buying so many snacks",
 		});
+		AllDisputes.Add(new Dispute
+		{
+				Status = Status.Submitted,
+				Transaction = context.Transactions.FirstOrDefault(l => l.TransactionNo == Convert.ToInt32(10)),
+				Amount = 0m,
+				Comments = "You rapscallions are trying to steal my money!!!",
+		});
 		Int32 intDisputeID = 0;
 		try
 		{

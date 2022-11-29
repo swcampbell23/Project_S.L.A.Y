@@ -47,7 +47,7 @@ namespace Project_SLAY.Seeding
 				TransactionType = TransactionType.Withdraw,
 				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000022)),
 				Amount = 1200m,
-				Notes = "Jacob Foster has a GPA of 2.63. LOL",
+				Notes = "Jacob Foster has a GPA of 1.92. LOL",
 				ApprovedType = ApprovedType.Yes,
 				Date = new DateTime(2022,4,14),
 		});
@@ -117,7 +117,7 @@ namespace Project_SLAY.Seeding
 				TransactionType = TransactionType.Deposit,
 				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000021)),
 				Amount = 1200m,
-				Notes = "Jacob Foster has a GPA of 2.63. LOL",
+				Notes = "Jacob Foster has a GPA of 1.92. LOL",
 				ApprovedType = ApprovedType.Yes,
 				Date = new DateTime(2022,4,14),
 		});
@@ -130,6 +130,26 @@ namespace Project_SLAY.Seeding
 				Notes = "",
 				ApprovedType = ApprovedType.Yes,
 				Date = new DateTime(2022,4,29),
+		});
+		AllTransactions.Add(new Transaction
+		{
+			TransactionNo= Convert.ToInt32(10),
+				TransactionType = TransactionType.Withdraw,
+				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000020)),
+				Amount = 4000m,
+				Notes = "This is totally not fraudulent 0_o",
+				ApprovedType = ApprovedType.Yes,
+				Date = new DateTime(2022,5,1),
+		});
+		AllTransactions.Add(new Transaction
+		{
+			TransactionNo= Convert.ToInt32(11),
+				TransactionType = TransactionType.Deposit,
+				Account = context.Accounts.FirstOrDefault(l => l.AccountNo == Convert.ToInt64(2290000016)),
+				Amount = 6000m,
+				Notes = "I got this money from my new business at the Blue Cat Lodge",
+				ApprovedType = ApprovedType.No,
+				Date = new DateTime(2022,5,1),
 		});
 		Int32 intTransactionID = 0;
 		try
