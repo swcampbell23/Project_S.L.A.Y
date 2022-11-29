@@ -13,4 +13,3 @@
         public Stock Stock { get; set; }
     }
 }
-
