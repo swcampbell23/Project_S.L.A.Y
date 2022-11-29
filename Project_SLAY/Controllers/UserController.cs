@@ -1,30 +1,47 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // Change these using statements to match your project
 using Project_SLAY.DAL;
 using Project_SLAY.Models;
 using Project_SLAY.Utilities;
+using static NuGet.Packaging.PackagingConstants;
 
 // Change this namespace to match your project
 namespace Project_SLAY.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class UserController : Controller
     {
         private readonly SignInManager<AppUser> _signInManager;
         private readonly UserManager<AppUser> _userManager;
         private readonly PasswordValidator<AppUser> _passwordValidator;
         private readonly AppDbContext _context;
 
-        public AccountController(AppDbContext appDbContext, UserManager<AppUser> userManager, SignInManager<AppUser> signIn)
+        public UserController(AppDbContext appDbContext, UserManager<AppUser> userManager, SignInManager<AppUser> signIn)
         {
             _context = appDbContext;
             _userManager = userManager;
             _signInManager = signIn;
             //user manager only has one password validator
             _passwordValidator = (PasswordValidator<AppUser>)userManager.PasswordValidators.FirstOrDefault();
+        }
+
+        public async Task<IActionResult> HomePage()
+        {
+            List<Account> Accounts = new List<Account>();
+            if (User.IsInRole("Admin"))
+            {
+                Accounts = _context.Accounts.ToList();
+            }
+            else //user is a customer
+            {
+                Accounts = _context.Accounts.Where(o => o.User.UserName == User.Identity.Name).ToList();
+            }
+
+            return View(Accounts);
         }
 
         // GET: /Account/Register
@@ -83,7 +100,7 @@ namespace Project_SLAY.Controllers
                 Microsoft.AspNetCore.Identity.SignInResult result2 = await _signInManager.PasswordSignInAsync(rvm.Email, rvm.Password, false, lockoutOnFailure: false);
 
                 //Send the user to the home page
-                return RedirectToAction("Index", "Home");
+                return View("HomePage");
             }
             else  //the add user operation didn't work, and we need to show an error message
             {
@@ -132,7 +149,7 @@ namespace Project_SLAY.Controllers
             if (result.Succeeded)
             {
                 //return ?? "/" means if returnUrl is null, substitute "/" (home)
-                return Redirect(returnUrl ?? "/");
+                return RedirectToAction("HomePage");
             }
             else //log in was not successful
             {

@@ -1,0 +1,56 @@
+﻿@model Project_SLAY.Models.Transaction
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Transaction</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TransactionID" />
+            <div class="form-group">
+                <label asp-for="TransactionNo" class="control-label"></label>
+                <input asp-for="TransactionNo" class="form-control" />
+                <span asp-validation-for="TransactionNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransactionType" class="control-label"></label>
+                <select asp-for="TransactionType" class="form-control"></select>
+                <span asp-validation-for="TransactionType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApprovedType" class="control-label"></label>
+                <select asp-for="ApprovedType" class="form-control"></select>
+                <span asp-validation-for="ApprovedType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
