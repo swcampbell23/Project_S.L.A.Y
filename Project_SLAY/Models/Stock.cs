@@ -19,7 +19,13 @@ namespace Project_SLAY.Models
                 StockTransactions = new List<StockTransaction>();
             }
         }
+        public String StockInformation { get; set; }
 
+        public void CompileStockInformation()
+        {
+            StockInformation = StockName + TickerSymbol + Convert.ToString(Price) +
+            StockType.TypeName;
+        }
     }
 }
 
