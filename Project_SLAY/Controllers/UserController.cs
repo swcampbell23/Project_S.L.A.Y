@@ -29,14 +29,6 @@ namespace Project_SLAY.Controllers
             _passwordValidator = (PasswordValidator<AppUser>)userManager.PasswordValidators.FirstOrDefault();
         }
 
-        public IActionResult Index()
-        {
-            return View(await _context.Users.ToListAsync());
-        }
-        public IActionResult AccessDenied()
-        {
-            return View("Error", new string[] { "You are not authorized for this resource" });
-        }
         public async Task<IActionResult> HomePage()
         {
             List<Account> Accounts = new List<Account>();
@@ -185,9 +177,14 @@ namespace Project_SLAY.Controllers
             //populate the view model
             //(i.e. map the domain model to the view model)
             ivm.Email = user.Email;
-            ivm.HasPassword = true;
-            ivm.UserID = user.Id;
-            ivm.UserName = user.UserName;
+            ivm.FirstName = user.FirstName;
+            ivm.LastName = user.LastName;
+            ivm.MI = user.MI;
+            ivm.Address = user.Address;
+            ivm.City = user.City;
+            ivm.State = user.State;
+            ivm.ZipCode = user.ZipCode;
+            ivm.PhoneNumber = user.PhoneNumber;
 
             //send data to the view
             return View(ivm);
