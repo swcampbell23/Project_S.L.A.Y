@@ -188,6 +188,14 @@ namespace Project_SLAY.Seeding
 				AccountType = AccountType.IRA,
 				Balance = 3500m,
 			});
+            AllAccounts.Add(new Account
+            {
+                AccountNo = Convert.ToInt64(2290000028),
+                User = context.Users.FirstOrDefault(l => l.UserName == "Dixon@aool.com"),
+                AccountName = "Shan's Checking",
+                AccountType = AccountType.Checking,
+                Balance =  2657.81m,
+            });
             //create some counters to help debug problems
             Int32 intAccountID = 0;
             String strAccountName = "Start";

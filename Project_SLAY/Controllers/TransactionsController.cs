@@ -26,37 +26,28 @@ namespace Project_SLAY.Controllers
             _userManager = userManager;
 
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             //Set up a list of transactions to display
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
             List<Transaction> transactions;
-              transactions = _context.Transactions
-                              .Include(r => r.TransactionID)//Unsure what to include for transactions to be displayed   , from HW5 vvvv
-                              .ToList();
-
-            return View(transactions);
-        }
-
-        /* Code from HW5 for ^ TODO: Figure out what to change in order for display list to work
-         public IActionResult Index()
-        {
-            //Set up a list of order to display
-            List<Order> orders;
-            if (User.IsInRole("Admin"))
+            transactions = _context.Transactions.ToList();
+            if (User.IsInRole("Admin") || User.IsInRole("Employee"))
             {
-                orders = _context.Orders
-                                .Include(r => r.OrderDetails)
-                                .ToList();
+                transactions = _context.Transactions.ToList();
             }
             else 
             {
-                orders = _context.Orders
-                                .Include(r => r.OrderDetails)
-                                .Where(r => r.User.UserName == User.Identity.Name)
-                                .ToList();
+                  transactions = _context.Transactions
+                            .Include(r => r.Account)
+                            .ThenInclude(r => r.User)
+                            .Where(r => r.Account.User.UserName == User.Identity.Name)
+                            .ToList();
             }
-            return View(orders);
-        }*/
+            
+            return View(transactions);
+        }
 
 
         //****Unsure about listTODO: Remove this
