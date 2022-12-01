@@ -1,6 +1,6 @@
 ﻿<h1>Account Info</h1>
 
-@model IEnumerable<Project_SLAY.Models.IndexViewModel>
+@model Project_SLAY.Models.IndexViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -8,9 +8,6 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -44,37 +41,34 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
+                @Html.DisplayFor(model => model.FirstName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.LastName)
+                @Html.DisplayFor(model => model.LastName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MI)
+                @Html.DisplayFor(model => model.MI)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Address)
+                @Html.DisplayFor(model => model.Address)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.City)
+                @Html.DisplayFor(model => model.City)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.State)
+                @Html.DisplayFor(model => model.State)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ZipCode)
+                @Html.DisplayFor(model => model.ZipCode)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
+                @Html.DisplayFor(model => model.PhoneNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Email)
+                @Html.DisplayFor(model => model.Email)
             </td>
         </tr>
-        }
     </tbody>
 </table>
