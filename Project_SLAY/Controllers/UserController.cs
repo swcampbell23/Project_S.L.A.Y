@@ -160,11 +160,6 @@ namespace Project_SLAY.Controllers
             }
         }
 
-        public IActionResult AccessDenied()
-        {
-            return View("Error", new string[] { "You are not authorized for this resource" });
-        }
-
         //GET: Account/Index
         public IActionResult Index()
         {
