@@ -28,6 +28,12 @@ namespace Project_SLAY.Controllers
         // GET: StockPortfolios/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            if (id == null)
+            {
+                id = user.StockPortfolio.StockPortfolioID;
+            }
             if (id == null || _context.StockPortfolios == null)
             {
                 return NotFound();
