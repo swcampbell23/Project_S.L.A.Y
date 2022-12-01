@@ -29,6 +29,14 @@ namespace Project_SLAY.Controllers
             _passwordValidator = (PasswordValidator<AppUser>)userManager.PasswordValidators.FirstOrDefault();
         }
 
+        public IActionResult Index()
+        {
+            return View(await _context.Users.ToListAsync());
+        }
+        public IActionResult AccessDenied()
+        {
+            return View("Error", new string[] { "You are not authorized for this resource" });
+        }
         public async Task<IActionResult> HomePage()
         {
             List<Account> Accounts = new List<Account>();
