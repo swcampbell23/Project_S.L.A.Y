@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,10 +14,12 @@ namespace Project_SLAY.Controllers
     public class AccountsController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public AccountsController(AppDbContext context)
+        public AccountsController(AppDbContext context, UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Accounts
@@ -59,6 +62,7 @@ namespace Project_SLAY.Controllers
             if (ModelState.IsValid)
             {
                 account.AccountNo = Utilities.GenerateNextAccountNumber.GetNextAccountNumber(_context);
+                account.User = await _userManager.FindByNameAsync(User.Identity.Name);
                 _context.Add(account);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
