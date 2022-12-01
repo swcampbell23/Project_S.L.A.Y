@@ -33,7 +33,7 @@ namespace Project_SLAY.Controllers
         {
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
 
-            if (id == null && user.StockPortfolio.StockPortfolioID =! null)
+            if (id == null && user.StockPortfolio != null)
             {
                 id = user.StockPortfolio.StockPortfolioID;
             }
