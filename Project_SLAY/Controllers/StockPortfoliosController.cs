@@ -25,7 +25,17 @@ namespace Project_SLAY.Controllers
         // GET: StockPortfolios
         public async Task<IActionResult> Index()
         {
-              return View(await _context.StockPortfolios.ToListAsync());
+            List<StockPortfolio> stockPortfolios = new List<StockPortfolio>();
+            if (User.IsInRole("Admin"))
+            {
+                stockPortfolios = _context.StockPortfolios.ToList();
+            }
+            else //user is a customer
+            {
+                stockPortfolios = _context.StockPortfolios.Where(o => o.User.UserName == User.Identity.Name).ToList();
+            }
+
+            return View(stockPortfolios);
         }
 
         // GET: StockPortfolios/Details/5
