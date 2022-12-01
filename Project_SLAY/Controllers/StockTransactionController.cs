@@ -23,6 +23,11 @@ namespace Project_SLAY.Controllers
             _userManager = userManager;
         }
 
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.StockTransactions.ToListAsync());
+        }
+
         // GET: StockTransaction/Create
         public IActionResult Create()
         {
