@@ -1,18 +1,17 @@
-﻿@model RegisterViewModel
+﻿@model Project_SLAY.Models.AppUser
 
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Edit";
 }
 
-<h1>Register a New User</h1>
-
-
+<h1>Modify/Manage Profile</h1>
 
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Register" method="post">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Email" />
 
 
             <div class="form-group">
@@ -20,9 +19,6 @@
                 <input asp-for="FirstName" class="form-control" />
                 <span asp-validation-for="FirstName" class="text-danger"></span>
             </div>
-
-
-
 
             <div class="form-group">
                 <label asp-for="LastName" class="control-label"></label>
@@ -36,11 +32,15 @@
                 <span asp-validation-for="MI" class="text-danger"></span>
             </div>
 
+
+
             <div class="form-group">
                 <label asp-for="Address" class="control-label"></label>
                 <input asp-for="Address" class="form-control" />
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
+
+
 
             <div class="form-group">
                 <label asp-for="City" class="control-label"></label>
@@ -54,28 +54,12 @@
                 <span asp-validation-for="State" class="text-danger"></span>
             </div>
 
+
             <div class="form-group">
                 <label asp-for="ZipCode" class="control-label"></label>
                 <input asp-for="ZipCode" class="form-control" />
                 <span asp-validation-for="ZipCode" class="text-danger"></span>
             </div>
-
-
-            <div class="form-group">
-                <label asp-for="DOB" class="control-label"></label>
-                <input asp-for="DOB" class="form-control" />
-                <span asp-validation-for="DOB" class="text-danger"></span>
-            </div>
-
-
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-
-
-
 
             <div class="form-group">
                 <label asp-for="PhoneNumber" class="control-label"></label>
@@ -84,34 +68,17 @@
             </div>
 
 
-
-
-
-
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-
+            <p>@Html.ActionLink("Change your password", "ChangePassword")</p>
 
 
             <div class="form-group">
-                <label asp-for="ConfirmPassword" class="control-label"></label>
-                <input asp-for="ConfirmPassword" class="form-control" />
-                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-            </div>
-
-
-
-
-            <div class="form-group">
-                <input type="submit" value="Register" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
-
+</br>
 <div>
-    <a asp-controller="Home" asp-action="Index">Home</a>
+    <a asp-action="Index">Back to View Profile</a>
 </div>
+

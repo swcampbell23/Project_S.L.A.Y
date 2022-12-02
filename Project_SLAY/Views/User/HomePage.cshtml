@@ -42,6 +42,7 @@
                 </td>
                 <td>
                     <a asp-action="Details" asp-controller="Accounts" asp-route-id="@item.AccountID">Details</a> |
+                    <a asp-action="Edit" asp-controller="Accounts" asp-route-id="@item.AccountID">Details</a> |
                 </td>
             </tr>
         }
@@ -51,4 +52,4 @@
 <a asp-action="Create" asp-controller="Accounts" class="btn btn-success">Apply for a new account</a>
 <a asp-action="Index" asp-controller="StockPortfolios" class="btn btn-success">Go to your Stock Portfolio</a>
 <a asp-action="Index" asp-controller="Transactions" class="btn btn-success">View all Transactions</a>
-<a asp-action="Index" asp-controller="StockTransactions" class="btn btn-success">View All Stock Transactions</a>
+<a asp-action="Index" asp-controller="StockTransaction" class="btn btn-success">View All Stock Transactions</a>

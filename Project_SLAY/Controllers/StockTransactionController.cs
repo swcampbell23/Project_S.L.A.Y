@@ -25,6 +25,19 @@ namespace Project_SLAY.Controllers
 
         public async Task<IActionResult> Index()
         {
+            List<StockTransaction> stockTransactions = new List<StockTransaction>();
+            if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+            {
+                stockTransactions = _context.StockTransactions.ToList();
+            }
+            else //user is a customer
+            {
+                stockTransactions = _context.StockTransactions
+                    .Include(s => s.StockPortfolio)
+                    .ThenInclude(s => s.User)
+                    .Where(s => s.StockPortfolio.User.UserName == User.Identity.Name)
+                    .ToList();
+            }
             return View(await _context.StockTransactions.ToListAsync());
         }
 

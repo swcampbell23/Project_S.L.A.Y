@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -184,7 +185,7 @@ namespace Project_SLAY.Controllers
             if (User.IsInRole("Customer"))
             {
                 Transaction trans = new Transaction();
-                //trans.User. = await _userManager.FindByNameAsync(User.Identity.Name);
+                ViewBag.AllAccounts = GetAllAccountsSelectList();
                 return View(trans);
             }
             else
@@ -194,11 +195,16 @@ namespace Project_SLAY.Controllers
             }
         }
 
+       
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TransactionID,TransactionNo,Amount,Date,Notes,TransactionType,ApprovedType")] Transaction transaction)
+        public async Task<IActionResult> Create(Transaction transaction)
         {
+            //Int32 no = Utilities.GenerateNextTransactionNumber.GenNextTransactionNumber(_context);
+            transaction.ApprovedType = ApprovedType.Yes;
+            //transaction.TransactionNo = no;
+            transaction.Date = DateTime.Now;
             if (ModelState.IsValid)
             {
                 _context.Add(transaction);
@@ -222,6 +228,20 @@ namespace Project_SLAY.Controllers
                 return NotFound();
             }
             return View(transaction);
+        }
+
+        private SelectList GetAllAccountsSelectList()
+        {
+            //Get the list of months from the database
+            List<Account> accountList = _context.Accounts.Include(a => a.User).Where(a => a.User.UserName == User.Identity.Name).ToList();
+
+            //convert the list to a SelectList by calling SelectList constructor
+            //MonthID and MonthName are the names of the properties on the Month class
+            //MonthID is the primary key
+            SelectList accountSelectList = new SelectList(accountList.OrderBy(m => m.AccountID), "AccountID", "AccountName");
+
+            //return the electList
+            return accountSelectList;
         }
 
         // POST: Transactions/Edit/5

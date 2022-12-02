@@ -32,7 +32,7 @@ namespace Project_SLAY.Controllers
         public async Task<IActionResult> HomePage()
         {
             List<Account> Accounts = new List<Account>();
-            if (User.IsInRole("Admin"))
+            if (User.IsInRole("Admin") || User.IsInRole("Employee"))
             {
                 Accounts = _context.Accounts.ToList();
             }
@@ -51,7 +51,7 @@ namespace Project_SLAY.Controllers
             return View();
         }
 
-        // POST: /Account/Register
+        /// POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -76,6 +76,14 @@ namespace Project_SLAY.Controllers
                 //FirstName is included as an example
                 FirstName = rvm.FirstName,
                 LastName = rvm.LastName,
+                MI = rvm.MI,
+                Address = rvm.Address,
+                City = rvm.City,
+                State = rvm.State,
+                ZipCode = rvm.ZipCode,
+                DOB = rvm.DOB,
+                //PhoneNumber = rvm.PhoneNumber,
+
             };
 
             //create AddUserModel
@@ -100,7 +108,9 @@ namespace Project_SLAY.Controllers
                 Microsoft.AspNetCore.Identity.SignInResult result2 = await _signInManager.PasswordSignInAsync(rvm.Email, rvm.Password, false, lockoutOnFailure: false);
 
                 //Send the user to the home page
-                return View("HomePage");
+                //return RedirectToAction("Index", "Home");
+
+                return RedirectToAction("Create", "Accounts");
             }
             else  //the add user operation didn't work, and we need to show an error message
             {
@@ -246,6 +256,156 @@ namespace Project_SLAY.Controllers
 
             //send the user back to the home page
             return RedirectToAction("Index", "Home");
+        }
+
+        /*public IActionResult Edit()
+        {
+            AppUser ivm = new AppUser();
+
+            //get user info
+            String id = User.Identity.Name;
+            AppUser user = _context.Users.FirstOrDefault(u => u.UserName == id);
+
+            //populate the view model
+            //(i.e. map the domain model to the view model)
+            //ivm.Email = user.Email;
+            //ivm.HasPassword = true;
+            //ivm.Id = user.Id;
+            //ivm.UserName = user.UserName;
+
+            ivm.FirstName = user.FirstName;
+            ivm.LastName = user.LastName;
+            ivm.MI = user.MI;
+            ivm.Address = user.Address;
+            ivm.City = user.City;
+            ivm.State = user.State;
+            ivm.ZipCode = user.ZipCode;
+            ivm.PhoneNumber = user.PhoneNumber;
+
+            //send data to the view
+            return View(ivm);
+        }
+        */
+
+
+        // GET: Accounts/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null || _context.Users == null)
+            {
+                return NotFound();
+            }
+
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return View(user);
+        }
+
+        // POST: Accounts/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, AppUser user)
+        {
+            if (user.Email == null)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(user);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!UserExists())
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(user);
+        }
+
+
+        public bool UserExists()
+        {
+            if (User == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+            public IActionResult ModifyDetails()
+        {
+            AppUser ivm = new AppUser();
+
+            //get user info
+            String id = User.Identity.Name;
+            AppUser user = _context.Users.FirstOrDefault(u => u.UserName == id);
+
+            //populate the view model
+            //(i.e. map the domain model to the view model)
+            //ivm.Email = user.Email;
+            //ivm.HasPassword = true;
+            //ivm.Id = user.Id;
+            //ivm.UserName = user.UserName;
+
+            ivm.FirstName = user.FirstName;
+            ivm.LastName = user.LastName;
+            ivm.MI = user.MI;
+            ivm.Address = user.Address;
+            ivm.City = user.City;
+            ivm.State = user.State;
+            ivm.ZipCode = user.ZipCode;
+            ivm.PhoneNumber = user.PhoneNumber;
+
+            //send data to the view
+            return View(ivm);
+        }
+
+
+        public IActionResult EditEmployeeProfile()
+        {
+
+            AppUser ivm = new AppUser();
+
+            //get user info
+            String id = User.Identity.Name;
+            AppUser user = _context.Users.FirstOrDefault(u => u.UserName == id);
+
+            //populate the view model
+            //(i.e. map the domain model to the view model)
+            ivm.Email = user.Email;
+            //ivm.Id = user.Id;
+            //ivm.UserName = user.UserName;
+            //ivm.FirstName = user.FirstName;
+            //ivm.LastName = user.LastName;
+            //ivm.MI = user.MI;
+            ivm.Address = user.Address;
+            ivm.City = user.City;
+            ivm.State = user.State;
+            ivm.ZipCode = user.ZipCode;
+            ivm.PhoneNumber = user.PhoneNumber;
+
+            //send data to the view
+            return View(ivm);
         }
     }
 }

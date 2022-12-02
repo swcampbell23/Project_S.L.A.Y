@@ -25,7 +25,7 @@ namespace Project_SLAY.Models
     //When the user registers, they only need to specify the
     //properties listed in this model
     public class RegisterViewModel
-    {   
+    {
         //NOTE: Here is the property for email
         [Required]
         [EmailAddress]
@@ -45,6 +45,31 @@ namespace Project_SLAY.Models
         [Required(ErrorMessage = "Last name is required.")]
         [Display(Name = "Last Name")]
         public String LastName { get; set; }
+
+        [Display(Name = "MI:")]
+        public String MI { get; set; }
+
+        [Display(Name = "Street Address Name:")]
+        [Required(ErrorMessage = "Street Address Name is required.")]
+        public String Address { get; set; }
+
+        [Display(Name = "City:")]
+        [Required(ErrorMessage = "City is required.")]
+        public String City { get; set; }
+
+
+        [Display(Name = "State:")]
+        [Required(ErrorMessage = "State is required.")]
+        public String State { get; set; }
+
+        [Display(Name = " ZipCode:")]
+        [Required(ErrorMessage = " ZipCode is required.")]
+        public String ZipCode { get; set; }
+
+        [Display(Name = "DOB:")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        [Required(ErrorMessage = "DOB is required.")]
+        public DateTime DOB { get; set; }
 
         //NOTE: Here is the logic for putting in a password
         [Required]
