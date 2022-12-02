@@ -16,9 +16,9 @@ internal class Program
         builder.Services.AddControllersWithViews();
 
         string connectionString =
-        "Server = tcp:fa22projectslay.database.windows.net,1433; Initial Catalog = fa22projectslay; Persist Security Info=False;" +
-        "User ID = MISAdmin; Password = Password123; MultipleActiveResultSets = True; Encrypt = True;" +
-        "TrustServerCertificate = False; Connection Timeout = 30;";
+        "Server = tcp:finalserver333k.database.windows.net,1433; Initial Catalog = finalproject333klastdatabase; Persist Security Info = False;" + 
+        "User ID = MISAdmin; Password = Password123; MultipleActiveResultSets = True; Encrypt = True; TrustServerCertificate = True;" +
+        "Connection Timeout = 30;";
 
         //NOTE: This tells your application how to get a connection to the database
         builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
